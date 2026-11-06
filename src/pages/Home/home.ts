@@ -12,6 +12,7 @@ export class HomePage extends BasePage {
         const stream_root: HTMLElement | null | undefined = root.querySelector<HTMLElement>(".home_container");
         if (!stream_root)
             return;
+        console.log("env", import.meta.env.HLS_URL);
         const stream_component: StreamComponent = new StreamComponent({
             stream_url: import.meta.env.HLS_URL,
         });

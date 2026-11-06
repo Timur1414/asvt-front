@@ -17,8 +17,10 @@ export class StreamComponent extends BaseComponent {
         const video: HTMLVideoElement | null | undefined = container.querySelector<HTMLVideoElement>('.stream_video_player');
         if (!video)
             return;
+        console.log('!')
         if (Hls.isSupported()) {
             const hls = new Hls();
+            console.log(this.streamUrl)
             hls.loadSource(this.streamUrl);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
