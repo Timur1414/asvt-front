@@ -1,0 +1,17 @@
+.not-found_container {
+    font-size: 28px;
+    color: #fff
+}
+
+.not-found_message {
+    margin-top: 10vh;
+}
+
+.not-found_code {
+    color: #E64646;
+    font-weight: bold;
+}
+
+.not-found_link {
+    color: #fff;
+}
