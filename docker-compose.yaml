@@ -11,8 +11,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - mediamtx
+#    depends_on:
+#      - mediamtx
     volumes:
       - ./certbot/conf:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot:ro
