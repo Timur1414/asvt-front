@@ -6,7 +6,7 @@ interface ImportMetaEnv {
     readonly DEBUG?: string;
     readonly CERT_FILE?: string;
     readonly KEY_FILE?: string;
-    readonly HLS_URL: string;
+    readonly VITE_HLS_URL: string;
 }
 
 interface ImportMeta {
