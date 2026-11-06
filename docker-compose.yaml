@@ -17,3 +17,10 @@ services:
       - ./ssl:/etc/nginx/ssl:ro
     networks:
       - asvt-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
