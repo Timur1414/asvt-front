@@ -1,3 +1,3 @@
-export interface MainMenuProps {
-    url: string;
+export interface StreamComponentProps {
+    stream_url: string;
 }

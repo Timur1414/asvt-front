@@ -2,10 +2,14 @@ import {BaseComponent} from "../base_component.ts";
 import template from "./stream.hbs?raw";
 import "./stream.css";
 import Hls from "hls.js";
+import type {StreamComponentProps} from "../../types/props_interfaces.ts";
 
 export class StreamComponent extends BaseComponent {
-    constructor(props: any) {
+    readonly streamUrl: string;
+
+    constructor(props: StreamComponentProps) {
         super(template, props);
+        this.streamUrl = props.stream_url;
     }
 
     render(container: HTMLElement) {
@@ -13,10 +17,9 @@ export class StreamComponent extends BaseComponent {
         const video: HTMLVideoElement | null | undefined = container.querySelector<HTMLVideoElement>('.stream_video_player');
         if (!video)
             return;
-        const streamUrl: string = "http://95.163.220.75:8888/mystream/index.m3u8";
         if (Hls.isSupported()) {
             const hls = new Hls();
-            hls.loadSource(streamUrl);
+            hls.loadSource(this.streamUrl);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
                 console.log('HLS поток готов к воспроизведению');

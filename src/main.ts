@@ -11,9 +11,7 @@ router.addRoute("/", () => new HomePage())
     .addRoute("/404", () => new NotFoundPage());
 
 async function init(): Promise<void> {
-    let menu: MainMenu = new MainMenu({
-        url: import.meta.env.VITE_ADVERTISEMENT_URL,
-    });
+    let menu: MainMenu = new MainMenu({});
     let menu_root: HTMLElement = document.getElementById("menu")!;
     menu.render(menu_root);
     router.start();

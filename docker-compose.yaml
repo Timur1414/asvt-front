@@ -1,0 +1,19 @@
+include:
+  - back/docker-compose.yaml  # заменить на нужный путь
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - mediamtx
+    volumes:
+      - ./ssl:/etc/nginx/ssl:ro
+    networks:
+      - asvt-network
