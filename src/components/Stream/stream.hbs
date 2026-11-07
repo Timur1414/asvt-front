@@ -1,3 +1,100 @@
-<div class="stream_container">
-    <video class="stream_video_player" controls muted autoplay></video>
+<div class="stream-card" id="stream-card">
+  <div class="stream-card__header">
+    <div class="stream-card__camera-info">
+      <div>
+        <h2 class="stream-card__title">Камера 01</h2>
+        <span class="stream-card__source-url">{{stream_url}}</span>
+      </div>
+    </div>
+    <div class="stream-card__badges">
+      <span class="stream-badge stream-badge--status" id="stream-status-badge">ПОДКЛЮЧЕНИЕ</span>
+      <span class="stream-badge stream-badge--res" id="stream-resolution-badge">-- x --</span>
+      <span class="stream-badge stream-badge--fps" id="stream-fps-badge">HLS LIVE</span>
+    </div>
+  </div>
+
+  <div class="stream-player-wrapper" id="stream-player-wrapper">
+    <video class="stream-video" id="stream-video" playsinline muted autoplay></video>
+
+    <!-- Overlay HUD: Top -->
+    <div class="stream-hud stream-hud--top">
+      <div class="stream-hud__rec">
+        <span class="stream-hud__rec-dot"></span>
+        <span>REC</span>
+      </div>
+      <div class="stream-hud__timestamp" id="stream-hud-clock">00:00:00</div>
+    </div>
+
+    <!-- Overlay Loading / Error States -->
+    <div class="stream-overlay" id="stream-overlay">
+      <div class="stream-overlay__spinner" id="stream-spinner"></div>
+      <div class="stream-overlay__text" id="stream-overlay-text">Инициализация видеопотока...</div>
+      <button class="stream-btn stream-btn--retry" id="stream-retry-btn" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+        </svg>
+        Повторить попытку
+      </button>
+    </div>
+
+    <!-- Overlay HUD: Bottom -->
+    <div class="stream-controls" id="stream-controls">
+      <div class="stream-controls__group">
+        <!-- Play / Pause -->
+        <button class="stream-control-btn" id="ctrl-play-pause" title="Воспроизведение / Пауза">
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16" rx="1"/>
+            <rect x="14" y="4" width="4" height="16" rx="1"/>
+          </svg>
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </button>
+
+        <!-- Live Sync -->
+        <button class="stream-control-btn stream-control-btn--live-sync" id="ctrl-live-sync" title="Перейти к прямому эфиру">
+          <span class="live-dot-mini"></span> ПРЯМОЙ ЭФИР
+        </button>
+      </div>
+
+      <div class="stream-controls__group">
+        <!-- Snapshot -->
+        <button class="stream-control-btn" id="ctrl-snapshot" title="Сделать снимок кадра (Screenshot)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="btn-label-mobile-hide">Снимок</span>
+        </button>
+
+        <!-- Reload Stream -->
+        <button class="stream-control-btn" id="ctrl-reload" title="Перезагрузить поток">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+        </button>
+
+        <!-- Picture in Picture -->
+        <button class="stream-control-btn" id="ctrl-pip" title="Картинка в картинке">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <rect x="11" y="9" width="9" height="6" rx="1" ry="1" fill="currentColor" fill-opacity="0.3"/>
+          </svg>
+        </button>
+
+        <!-- Fullscreen -->
+        <button class="stream-control-btn" id="ctrl-fullscreen" title="Во весь экран">
+          <svg class="icon-enter-fullscreen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+          <svg class="icon-exit-fullscreen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+            <path d="M4 14h6v6m10-10h-6V4m0 6l7-7M3 21l7-7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div class="stream-toast" id="stream-toast"></div>
 </div>

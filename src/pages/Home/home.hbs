@@ -1,3 +1,44 @@
-<div class="home_container">
+<div class="home-page">
+  <header class="home-header">
+    <div class="home-header__title-block">
+      <h1 class="home-header__title">Прямая трансляция с камеры</h1>
+    </div>
 
+    <div class="home-header__actions">
+      <button class="home-action-btn" id="btn-header-copy-link" title="Копировать URL потока">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span>Копировать URL</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="home__stream-section" id="stream-mount-point"></section>
+
+  <section class="home-grid">
+    <div class="info-card info-card--wide">
+      <div class="info-card__header">
+        <div class="info-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <div class="info-card__title-row">
+          <h3 class="info-card__title">Журнал событий трансляции</h3>
+          <button class="info-card__clear-btn" id="btn-clear-logs" title="Очистить лог">Очистить</button>
+        </div>
+      </div>
+      <div class="info-card__body">
+        <div class="event-log-list" id="event-log-container">
+
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
