@@ -12,3 +12,9 @@ export interface StreamComponentProps {
     onLogEvent?: (message: string, type: StreamEventType) => void;
     onStatusChange?: (status: 'connecting' | 'live' | 'paused' | 'error') => void;
 }
+
+export interface SecurityEventProps {
+    timestamp: string;
+    object_class: string;
+    object_confidence: number;
+}
