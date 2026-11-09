@@ -72,6 +72,11 @@
     gap: 6px;
     font-size: 13px;
     color: var(--text-muted);
+    cursor: help;
+}
+
+.security_event_time_label {
+    color: var(--text-dim);
 }
 
 .security_event_time_icon {
@@ -85,6 +90,19 @@
     font-family: var(--font-mono);
     color: var(--text-main);
     font-weight: 600;
+}
+
+.security_event_relative_tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 1px 8px;
+    border-radius: 9999px;
+    margin-left: 4px;
+    white-space: nowrap;
 }
 
 /* Бейджи */

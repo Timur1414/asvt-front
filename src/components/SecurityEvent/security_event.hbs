@@ -9,12 +9,16 @@
     </div>
     <div class="security_event_body">
         <div class="security_event_top">
-            <div class="security_event_time">
+            <div class="security_event_time" title="{{ time_tooltip }}">
                 <svg class="security_event_time_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                <span>Время события: <strong class="security_event_timestamp">{{ timestamp }}</strong></span>
+                <span class="security_event_time_label">Время события:</span>
+                <strong class="security_event_timestamp">{{ formatted_time }}</strong>
+                {{#if relative_time}}
+                    <span class="security_event_relative_tag">{{ relative_time }}</span>
+                {{/if}}
             </div>
             <div class="security_event_badges">
                 <span class="security_event_badge security_event_badge--object" title="Обнаруженный объект">

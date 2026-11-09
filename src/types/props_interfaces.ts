@@ -17,4 +17,8 @@ export interface SecurityEventProps {
     timestamp: string;
     object_class: string;
     object_confidence: number;
+    formatted_time?: string;
+    relative_time?: string;
+    raw_timestamp?: string;
+    time_tooltip?: string;
 }
