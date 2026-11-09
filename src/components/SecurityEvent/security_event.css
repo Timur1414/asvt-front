@@ -1,0 +1,179 @@
+.security_event_container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(19, 28, 49, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.security_event_container:hover {
+    transform: translateY(-2px);
+    border-color: rgba(234, 179, 8, 0.35);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(234, 179, 8, 0.1);
+}
+
+/* Левая полоса статуса тревоги */
+.security_event_indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--status-warn) 0%, #f97316 100%);
+    box-shadow: 0 0 8px rgba(234, 179, 8, 0.4);
+}
+
+/* Иконка предупреждения */
+.security_event_icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    color: var(--status-warn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.security_event_icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Контент события */
+.security_event_body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.security_event_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Время */
+.security_event_time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.security_event_time_icon {
+    width: 15px;
+    height: 15px;
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+.security_event_timestamp {
+    font-family: var(--font-mono);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Бейджи */
+.security_event_badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.security_event_badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.3px;
+}
+
+.security_event_badge--object {
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.security_event_badge--confidence {
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    font-family: var(--font-mono);
+}
+
+/* Описание */
+.security_event_desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.security_event_highlight {
+    color: #fef08a;
+    font-weight: 600;
+}
+
+.security_event_confidence_val {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+/* Стили по умолчанию для элементов p на случай классической структуры */
+.security_event_container p {
+    margin: 0;
+    color: var(--text-main);
+}
+
+.security_event_container p:first-of-type:not(.security_event_desc) {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: 4px;
+}
+
+/* Адаптивность для мобильных экранов */
+@media (max-width: 640px) {
+    .security_event_container {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .security_event_icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .security_event_icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .security_event_top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .security_event_desc {
+        font-size: 13px;
+    }
+}

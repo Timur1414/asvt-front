@@ -1,4 +1,32 @@
 <div class="security_event_container">
-    <p>Время события: {{ timestamp }}</p>
-    <p>Объект "{{ object_class }}" (с вероятностью {{ object_confidence }}) находится в области камеры более 15 секунд</p>
+    <div class="security_event_indicator"></div>
+    <div class="security_event_icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+    </div>
+    <div class="security_event_body">
+        <div class="security_event_top">
+            <div class="security_event_time">
+                <svg class="security_event_time_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Время события: <strong class="security_event_timestamp">{{ timestamp }}</strong></span>
+            </div>
+            <div class="security_event_badges">
+                <span class="security_event_badge security_event_badge--object" title="Обнаруженный объект">
+                    {{ object_class }}
+                </span>
+                <span class="security_event_badge security_event_badge--confidence" title="Уверенность детекции">
+                    {{ object_confidence }}
+                </span>
+            </div>
+        </div>
+        <p class="security_event_desc">
+            Объект <span class="security_event_highlight">"{{ object_class }}"</span> (с вероятностью <span class="security_event_confidence_val">{{ object_confidence }}</span>) находится в области камеры более 15 секунд
+        </p>
+    </div>
 </div>

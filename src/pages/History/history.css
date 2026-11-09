@@ -1,0 +1,109 @@
+.history_container {
+    padding: 32px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    animation: fadeIn var(--transition-normal);
+}
+
+/* Шапка страницы */
+.history_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.history_header__title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.history_header__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.25);
+    color: var(--status-warn);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    width: fit-content;
+}
+
+.history_header__tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--status-warn);
+    box-shadow: 0 0 6px var(--status-warn);
+}
+
+.history_title,
+.history_container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.history_subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Контейнер списка событий */
+.history_events_container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 200px;
+}
+
+/* Пустое состояние, когда в контейнере пока нет событий */
+.history_events_container:empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.history_events_container:empty::before {
+    content: "Нет зарегистрированных событий безопасности";
+    color: var(--text-dim);
+    font-size: 15px;
+    letter-spacing: 0.2px;
+}
+
+/* Адаптивность для небольших экранов */
+@media (max-width: 768px) {
+    .history_container {
+        padding: 20px 16px;
+        gap: 20px;
+    }
+
+    .history_title,
+    .history_container h1 {
+        font-size: 22px;
+    }
+
+    .history_subtitle {
+        font-size: 13px;
+    }
+}
