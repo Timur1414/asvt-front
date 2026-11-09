@@ -12,7 +12,7 @@ export class HistoryPage extends BasePage {
         root.innerHTML = compiledTemplate({}).trim();
 
         const history_response = await get_history();
-        if (!history_response) {
+        if (!history_response.success) {
             const data = history_response.data as ServerErrorResponse;
             console.error(data.message);
             return;
