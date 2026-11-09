@@ -3,9 +3,7 @@ include:
 
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: timur1414/asvt-front
     container_name: frontend
     restart: always
     ports:
