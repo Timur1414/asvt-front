@@ -1,0 +1,27 @@
+<div class="mode-toggle">
+    <label class="mode-toggle__container" for="mode-toggle-checkbox">
+        <div class="mode-toggle__left">
+            <div class="mode-toggle__icon-wrap">
+                <svg class="mode-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 7l-7 5 7 5V7z" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                </svg>
+            </div>
+            <div class="mode-toggle__text">
+                <div class="mode-toggle__title-line">
+                    <span class="mode-toggle__title">Режим внешней камеры</span>
+                    <span class="mode-toggle__badge mode-toggle__badge--off">ВЫКЛЮЧЕН</span>
+                    <span class="mode-toggle__badge mode-toggle__badge--on">АКТИВЕН</span>
+                </div>
+                <span class="mode-toggle__description">Переключение между внутренней трансляцией и внешним источником видеопотока</span>
+            </div>
+        </div>
+
+        <div class="mode-toggle__control">
+            <input type="checkbox" id="mode-toggle-checkbox" class="mode-toggle-checkbox mode-toggle__input" {{#if mode_on}}checked{{/if}}>
+            <div class="mode-toggle__switch" aria-hidden="true">
+                <div class="mode-toggle__thumb"></div>
+            </div>
+        </div>
+    </label>
+</div>

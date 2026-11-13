@@ -4,6 +4,8 @@ import "./home.css";
 import Handlebars from "handlebars";
 import { StreamComponent } from "../../components/Stream/stream.ts";
 import type { StreamEventType } from "../../types/props_interfaces.ts";
+import {ModeToggle} from "../../components/ModeToggle/mode_toggle.ts";
+import {get_mode} from "../../store/store.ts";
 
 export class HomePage extends BasePage {
     private _streamComponent: StreamComponent | null = null;
@@ -36,6 +38,14 @@ export class HomePage extends BasePage {
 
         this._initPageActions(root, streamUrl);
         this._addLogEntry("Веб-клиент мониторинга успешно запущен", "info");
+
+        const modeToggleRoot = root.querySelector<HTMLElement>("#mode-toggle");
+        const modeToggle = new ModeToggle({
+            mode_on: get_mode(),
+        });
+        if (modeToggleRoot) {
+            modeToggle.render(modeToggleRoot);
+        }
     }
 
     private _initPageActions(root: HTMLElement, streamUrl: string): void {
